@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .blind {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+  }
+
+  .hide-3 {
+    animation: hideElement 1s 3s forwards;
+  }
+
+  @keyframes hideElement {
+    0% {
+      opacity: 1;
+      visibility: visible;
+      z-index: 1;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+      z-index: 0;
+    }
+  }
+
+  .show-3 {
+    animation: showElement 1s 4s forwards;
+  }
+
+  @keyframes showElement {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+      z-index: 0;
+    }
+    100% {
+      opacity: 1;
+      visibility: visible;
+      z-index: 1;
+    }
+  }
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
